@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Headquarter 1",
+    "address": "HQ 1 Address",
+    "contact": {
+      "fullName": "HQ1 FullName",
+      "jobPosition": "HQ1 JobPosition",
+      "emailAddress": "HQ1 emailAddress",
+      "phoneNumber": "HQ1 phoneNumber"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Headquarter 2",
+    "address": "HQ 2 Address",
+    "contact": {
+      "fullName": "HQ2 FullName",
+      "jobPosition": "HQ2 JobPosition",
+      "emailAddress": "HQ2 emailAddress",
+      "phoneNumber": "HQ2 phoneNumber"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Headquarter 3",
+    "address": "HQ 3 Address",
+    "contact": {
+      "fullName": "HQ3 FullName",
+      "jobPosition": "HQ3 JobPosition",
+      "emailAddress": "HQ3 emailAddress",
+      "phoneNumber": "HQ3 phoneNumber"
+    }
+  }
+]
