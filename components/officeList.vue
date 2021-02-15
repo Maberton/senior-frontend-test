@@ -2,7 +2,10 @@
 	<div class="container flex justify-center mt-20">
 		<div class="office-list justify-center">
 			<h1 class="head mb-5">Offices</h1>
-			<button class="add-new bg-prim mb-5 w-full text-gray-200 py-2 px-4 rounded flex items-center justify-between shadow-lg focus:outline-none">
+
+			<button
+				@click="toggleForm"
+				class="opacity-90 hover:opacity-100 mb-5 bg-prim w-full text-gray-200 py-4 px-4 rounded flex items-center justify-between shadow-lg focus:outline-none">
 				<span>Add New Location</span>
 				<svg
 					class="h-5"
@@ -10,6 +13,8 @@
 					<path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
 				</svg>
 			</button>
+
+			<OfficeForm v-if="showForm"/>
 			<div v-for="office in offices" :key="office.id">
 				<OfficeCard :office="office"/>
 			</div>
@@ -21,14 +26,22 @@
 
 import offices from "../data/offices.json";
 import OfficeCard from '@/components/officeCard'
+import OfficeForm from '@/components/officeForm'
 
 export default {
 	components: {
-		OfficeCard
+		OfficeCard,
+		OfficeForm
 	},
 	data(){
 		return {
-			offices: offices
+			offices: offices,
+			showForm: false
+		}
+	},
+	methods: {
+		toggleForm() {
+			this.showForm = !this.showForm
 		}
 	}
 }
@@ -46,8 +59,5 @@ export default {
 
 	.office-list {
 		width: 318px;
-	}
-	.add-new {
-		height: 56px;
 	}
 </style>
