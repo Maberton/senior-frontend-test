@@ -25,7 +25,7 @@
 				class="card-content ease-linear my-6 mx-10 divide-y "
 				v-if="showExtendedInfo"
 			>
-				<section class="info-office">
+				<section>
 					<h2 class="mb-3 font-medium"> {{ office.contact.fullName }} </h2>
 					<p class="mb-3 text-sm"> {{ office.contact.jobPosition }} </p>
 					<p class="mb-3 text-sm text-prim"> <a :href="'mailto:' + office.contact.emailAddress">{{office.contact.emailAddress}} </a> </p>
@@ -91,7 +91,7 @@ export default {
 				required: true
 			},
 			contact: {
-				fullname: {
+				fullName: {
 					type: "String",
 					required: true
 				},
@@ -103,7 +103,7 @@ export default {
 					type: "String",
 					required: true
 				},
-				phoneNUmber: {
+				phoneNumber: {
 					type: "String",
 					required: true
 				},

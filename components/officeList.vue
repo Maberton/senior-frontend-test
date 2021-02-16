@@ -4,6 +4,7 @@
 			<h1 class="head mb-5">Offices</h1>
 
 			<button
+				v-if="!showForm"
 				@click="toggleForm"
 				class="opacity-90 hover:opacity-100 mb-5 bg-prim w-full text-gray-200 py-4 px-4 rounded flex items-center justify-between shadow-lg focus:outline-none">
 				<span>Add New Location</span>
@@ -14,7 +15,7 @@
 				</svg>
 			</button>
 
-			<OfficeForm v-if="showForm"/>
+			<OfficeForm v-if="showForm" @closed="toggleForm"/>
 			<div v-for="office in offices" :key="office.id">
 				<OfficeCard :office="office"/>
 			</div>
