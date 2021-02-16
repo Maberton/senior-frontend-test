@@ -1,38 +1,40 @@
 <template>
 	<div class="bg-white shadow overflow-hidden rounded-md mb-5 shadow-lg">
-		<button
-			@click="showInfo"
-			class="w-full card-title flex items-center justify-between outline-none focus:outline-none transition duration-300"
-			:class="{'bg-gray-400': showExtendedInfo}"
-		>
-			<span>
-				<h1 class="font-bold text-darkBlue m-4 transition duration-300"
-				   :class="{'text-white': showExtendedInfo}"
-				> {{office.title}} </h1>
-				<p class="text-gray-500 m-4"
-				  :class="{'text-white transition duration-300': showExtendedInfo}"
-				> {{ office.address }} </p>
-			</span>
-			<svg
-				class="h-8 m-2 closed-card transition duration-300"
-				:class="{'open-card transform rotate-180': showExtendedInfo}"
-				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-				<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-			</svg>
-		</button>
-		<!-- <transition name="fade"> -->
+		<span  v-if="!showEdit">
+			<button
+				@click="showInfo"
+				class="w-full card-title flex items-center justify-between outline-none focus:outline-none transition duration-300"
+				:class="{'bg-gray-400': showExtendedInfo}"
+			>
+				<span>
+					<h1 class="font-bold text-darkBlue m-4 transition duration-300"
+					:class="{'text-white': showExtendedInfo}"
+					> {{office.title}} </h1>
+					<p class="text-gray-500 m-4"
+					:class="{'text-white transition duration-300': showExtendedInfo}"
+					> {{ office.address }} </p>
+				</span>
+				<svg
+					class="h-8 m-2 closed-card transition duration-300"
+					:class="{'open-card transform rotate-180': showExtendedInfo}"
+					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+					<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+				</svg>
+			</button>
 			<div
 				class="card-content ease-linear my-6 mx-10 divide-y "
 				v-if="showExtendedInfo"
 			>
-				<section class="info-office">
+				<section>
 					<h2 class="mb-3 font-medium"> {{ office.contact.fullName }} </h2>
 					<p class="mb-3 text-sm"> {{ office.contact.jobPosition }} </p>
-					<p class="mb-3 text-sm text-prim"> {{ office.contact.emailAddress }} </p>
+					<p class="mb-3 text-sm text-prim"> <a :href="'mailto:' + office.contact.emailAddress">{{office.contact.emailAddress}} </a> </p>
 					<p class="mb-3 text-sm"> {{ office.contact.phoneNumber }} </p>
 				</section>
 				<section class="actions flex justify-between pt-4">
-					<button class="flex items-center text-gray-400">
+					<button
+						@click="editOffice"
+						class="flex items-center text-gray-400">
 						<svg
 							class="h-6 mr-2"
 							xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,15 +56,24 @@
 					</button>
 				</section>
 			</div>
-		<!-- </transition> -->
+		</span>
+		<OfficeForm :office="office" v-if="showEdit" @closed="handleClose" isEdit/>
 	</div>
+
 </template>
 
 <script>
+
+import OfficeForm from '@/components/officeForm'
+
 export default {
+	components: {
+		OfficeForm
+	},
 	data() {
 		return {
-			showExtendedInfo: false
+			showExtendedInfo: false,
+			showEdit: false
 		}
 	},
 	props: {
@@ -80,7 +91,7 @@ export default {
 				required: true
 			},
 			contact: {
-				fullname: {
+				fullName: {
 					type: "String",
 					required: true
 				},
@@ -92,7 +103,7 @@ export default {
 					type: "String",
 					required: true
 				},
-				phoneNUmber: {
+				phoneNumber: {
 					type: "String",
 					required: true
 				},
@@ -102,8 +113,13 @@ export default {
 	methods: {
 		showInfo() {
 			this.showExtendedInfo = !this.showExtendedInfo
-
-			console.log('info', this.showExtendedInfo)
+		},
+		editOffice() {
+			this.showEdit = !this.showEdit
+		},
+		handleClose() {
+			this.editOffice();
+			this.showInfo();
 		}
 	}
 }
