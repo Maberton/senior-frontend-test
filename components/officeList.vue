@@ -16,7 +16,7 @@
 			</button>
 
 			<OfficeForm v-if="showForm" @closed="toggleForm"/>
-			<div v-for="office in offices" :key="office.id">
+			<div v-for="office in loadedOffices" :key="office.id">
 				<OfficeCard :office="office"/>
 			</div>
 		</div>
@@ -25,7 +25,6 @@
 
 <script>
 
-import offices from "../data/offices.json";
 import OfficeCard from '@/components/officeCard'
 import OfficeForm from '@/components/officeForm'
 
@@ -36,13 +35,17 @@ export default {
 	},
 	data(){
 		return {
-			offices: offices,
 			showForm: false
 		}
 	},
 	methods: {
 		toggleForm() {
 			this.showForm = !this.showForm
+		}
+	},
+	computed: {
+		loadedOffices() {
+		return this.$store.getters.loadedOffices
 		}
 	}
 }

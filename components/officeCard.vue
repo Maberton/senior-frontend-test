@@ -44,7 +44,7 @@
 							EDIT
 						</span>
 					</button>
-					<button class="flex items-center text-red-400">
+					<button class="flex items-center text-red-400" @click="removeOffice">
 						<svg
 							class="h-6 mr-2"
 							xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -120,6 +120,9 @@ export default {
 		handleClose() {
 			this.editOffice();
 			this.showInfo();
+		},
+		removeOffice() {
+			this.$store.commit('removeOffice', this.office)
 		}
 	}
 }
