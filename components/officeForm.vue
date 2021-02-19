@@ -26,8 +26,6 @@
 						<input id="title" name="title" type="text" v-model="officeInput.contact.jobPosition" class="focus:outline-none opacity-90 p-1 w-full rounded-md border-2 border-darkBlue focus:border-prim mb-5">
 						<label for="title" class="block text-sm font-medium text-darkBlue mb-2" > Email address * </label>
 						<input id="title" name="title" type="text" v-model="officeInput.contact.emailAddress" class="focus:outline-none opacity-90 p-1 w-full rounded-md border-2 border-darkBlue focus:border-prim mb-5">
-						<label for="title" class="block text-sm font-medium text-darkBlue mb-2" > Job Position * </label>
-						<input id="title" name="title" type="text" v-model="officeInput.contact.jobPosition" class="focus:outline-none opacity-90 p-1 w-full rounded-md border-2 border-darkBlue focus:border-prim mb-5">
 						<label for="title" class="block text-sm font-medium text-darkBlue mb-2" > Phone * </label>
 						<input id="title" name="title" type="text" v-model="officeInput.contact.phoneNumber" class="focus:outline-none opacity-90 p-1 w-full rounded-md border-2 border-darkBlue focus:border-prim mb-5">
 					</div>
@@ -72,7 +70,9 @@ export default {
 			this.$emit('closed', true)
 		},
 		saveData() {
-			console.log('office', this.officeInput)
+			const operation = this.isEdit ? 'editOffice' : 'addOffice'
+			this.$store.commit(operation, this.officeInput)
+			this.close()
 		}
 	}
 }
