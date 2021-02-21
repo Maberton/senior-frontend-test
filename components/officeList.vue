@@ -1,7 +1,7 @@
 <template>
 	<div class="container flex justify-center mt-20">
-		<div class="office-list justify-center">
-			<h1 class="head mb-5">Offices</h1>
+		<div class="w-max-content justify-center">
+			<h1 class="head mb-5 text-center text-prim font-light font-sans text-64px">Offices</h1>
 
 			<button
 				v-if="!showForm"
@@ -50,18 +50,3 @@ export default {
 	}
 }
 </script>
-<style>
-	.head {
-		font-family: Roboto;
-		font-style: normal;
-		font-weight: 300;
-		font-size: 64px;
-		line-height: 100%;
-		text-align: center;
-		color: #33a6ba;
-	}
-
-	.office-list {
-		width: 318px;
-	}
-</style>

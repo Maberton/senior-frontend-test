@@ -1,4 +1,4 @@
-<template>
+<template class="bg-appGray">
 	<nuxt />
 </template>
 
