@@ -11,6 +11,10 @@ const createStore = () => {
         state.loadedOffices = officeList;
       },
       addOffice(state, office) {
+		const max = state.loadedOffices.reduce(function(prev, current) {
+			return (prev.id > current.id) ? prev.id : current.id
+		})
+		office.id = max + 1
         state.loadedOffices.push(office);
       },
       removeOffice(state, office) {
@@ -32,10 +36,7 @@ const createStore = () => {
       },
       setOffices(vuexContext, officeList) {
         vuexContext.commit("setOffices", ...officeList);
-      },
-	  addOffice(vuexContext, office) {
-		  vuexContext.add('officeList', office)
-	  }
+      }
     },
     getters: {
       loadedOffices(state) {

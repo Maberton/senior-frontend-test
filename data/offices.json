@@ -2,34 +2,34 @@
   {
     "id": 1,
     "title": "Headquarter 1",
-    "address": "HQ 1 Address",
+    "address": "08172 Beer Village",
     "contact": {
-      "fullName": "HQ1 FullName",
-      "jobPosition": "HQ1 JobPosition",
-      "emailAddress": "HQ1 emailAddress",
-      "phoneNumber": "HQ1 phoneNumber"
+      "fullName": "Marvin Weber",
+      "jobPosition": "Manager",
+      "emailAddress": "marvin_meber13@gmail.com",
+      "phoneNumber": "932-739-9908"
     }
   },
   {
     "id": 2,
     "title": "Headquarter 2",
-    "address": "HQ 2 Address",
+    "address": "2935 Rempel Springs",
     "contact": {
-      "fullName": "HQ2 FullName",
-      "jobPosition": "HQ2 JobPosition",
-      "emailAddress": "HQ2 emailAddress",
-      "phoneNumber": "HQ2 phoneNumber"
+      "fullName": "Kaycee Schneider",
+      "jobPosition": "Supervisor",
+      "emailAddress": "kaycee.schneider@gmail.com",
+      "phoneNumber": "703-326-5268"
     }
   },
   {
     "id": 3,
     "title": "Headquarter 3",
-    "address": "HQ 3 Address",
+    "address": "2935 Rempel Springs",
     "contact": {
-      "fullName": "HQ3 FullName",
-      "jobPosition": "HQ3 JobPosition",
-      "emailAddress": "HQ3 emailAddress",
-      "phoneNumber": "HQ3 phoneNumber"
+      "fullName": "Dr. Sienna O'Connell",
+      "jobPosition": "Head Buyer",
+      "emailAddress": "sienna.oconnell61@yahoo.com",
+      "phoneNumber": "403-690-3930"
     }
   }
 ]

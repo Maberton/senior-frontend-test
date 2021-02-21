@@ -6,17 +6,17 @@
 				class="w-full card-title flex items-center justify-between outline-none focus:outline-none transition duration-300"
 				:class="{'bg-gray-400': showExtendedInfo}"
 			>
-				<span>
+				<span class="flex flex-col items-start">
 					<h1 class="font-bold text-darkBlue m-4 transition duration-300"
 					:class="{'text-white': showExtendedInfo}"
 					> {{office.title}} </h1>
-					<p class="text-gray-500 m-4"
+					<p class="text-gray-500 mx-4 mb-4"
 					:class="{'text-white transition duration-300': showExtendedInfo}"
 					> {{ office.address }} </p>
 				</span>
 				<svg
-					class="h-8 m-2 closed-card transition duration-300"
-					:class="{'open-card transform rotate-180': showExtendedInfo}"
+					class="h-8 m-2 text-prim transition duration-300"
+					:class="{'text-white transform rotate-180': showExtendedInfo}"
 					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
 					<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
 				</svg>
@@ -128,17 +128,3 @@ export default {
 }
 </script>
 
-<style scoped>
-	.closed-card {
-		color: #33a6ba
-	}
-	.open-card {
-		color: #ffffff
-	}
-	.fade-enter-active, .fade-leave-active {
-	transition: opacity .5s;
-	}
-	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-	opacity: 0;
-	}
-</style>

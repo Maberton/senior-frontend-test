@@ -9,6 +9,12 @@ module.exports = {
 		white: colors.white,
 		red: colors.red,
 	  },
+	  fontFamily: {
+		'sans': ['Roboto']
+	  },
+	  fontSize: {
+		'64px': '64px'
+	  },
 	  extend: {
 		spacing: {
 		  'max-content': '318px',
